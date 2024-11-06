@@ -5,7 +5,7 @@
                 exclude-result-prefixes="s">
     
     <xsl:output method="xml" encoding="UTF-8"
-                doctype-system="/home/rasmus/et-ereader-dicts/xdxf_strict.dtd"/>
+                doctype-system="/home/rasmus/et-ereader-dicts/schema/xdxf_strict.dtd"/>
     
     <xsl:template match="/">
         <xdxf revision="034">
