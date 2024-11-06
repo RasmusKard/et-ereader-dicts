@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:s="http://www.eki.ee/dict/ss"
                 exclude-result-prefixes="s">
     
     <xsl:output method="xml" encoding="UTF-8"
-                doctype-system="/home/rasmus/et-ereader-dicts/schema/xdxf_strict.dtd"/>
+                doctype-system="/home/rasmus/et-ereader-dicts/schema/xdxf_strict.dtd"
+        />
     
     <xsl:template match="/">
         <xdxf revision="034">
@@ -32,23 +33,25 @@
     <xsl:template match="s:sr">
         <lexicon>
             <xsl:for-each select="s:A">
+                <!-- translate(s:P/s:mg/s:m,'\|','') -->
                 <ar>
-                    <k xml:lang="et"><xsl:value-of select="s:P/s:mg/s:m"/></k>
+                    <k xml:lang="et"><xsl:value-of select="translate(s:P/s:mg/s:m,'\|','')"/></k>
                     <def>
                         <xsl:for-each select="s:S/s:rp/s:tp">
-                            <xsl:for-each select="s:tg/s:dg/s:d">
-                                <def>
+                            <def>
+                                <xsl:for-each select="s:tg/s:dg/s:d">
+                                    
                                     <deftext>
                                         <xsl:value-of select="."/>
                                     </deftext>
-                                </def>
-                            </xsl:for-each>
-                            
-                            <xsl:for-each select="s:tg/s:np/s:ng/s:n">
-                                <def>
-                                    <deftext> <xsl:value-of select="."/></deftext>
-                                </def>
-                            </xsl:for-each>
+                                    
+                                </xsl:for-each>
+                                
+                                <xsl:for-each select="s:tg/s:np/s:ng/s:n">
+                                    
+                                    <ex> <xsl:value-of select="."/></ex>
+                                </xsl:for-each>
+                            </def>
                         </xsl:for-each>
                     </def>
                 </ar>

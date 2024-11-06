@@ -2,10 +2,13 @@
 
 
 
-xmlFilePath='../snippet.xml'
-xsltFilePath='../test.xslt'
-xdxfFilePath='./result.xdxf'
+xmlFilePath='/home/rasmus/et-ereader-dicts/data/snippet.xml'
+xsltFilePath='/home/rasmus/et-ereader-dicts/dev/test.xslt'
 
+xdxfFilePath="./result.xdxf"
+if [ -f "$xdxfFilePath" ]; then
+    rm $xdxfFilePath
+fi
 # Convert XML to XDXF using XSLT
 xsltproc --output $xdxfFilePath $xsltFilePath $xmlFilePath
 

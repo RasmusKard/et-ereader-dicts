@@ -1,4 +1,11 @@
-# Entry Structure
+## Changes made to original structure
+
+1. **Change minOccurs of the following to 0**
+   s:K (created by)
+   s:KA (time of creation)
+1.
+
+## Entry Structure
 
 Each entry is represented by the `<s:A>` element, which can contain the following child elements:
 
